@@ -43,7 +43,7 @@ public class RootViewController : UIViewController, PaperFoldViewDelegate {
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     
-    public init(mainContentViewController : UIViewController, assembly : ApplicationAssembly) {
+    @objc init(mainContentViewController : UIViewController, assembly : ApplicationAssembly) {
         super.init(nibName : nil, bundle : nil)
         
         self.assembly = assembly
@@ -112,7 +112,7 @@ public class RootViewController : UIViewController, PaperFoldViewDelegate {
     }
 
     public func toggleSideViewController() {
-        switch self.sideViewState {
+        switch self.sideViewState! {
         case .hidden:
             self.showCitiesListController()
         case .showing:
@@ -179,7 +179,7 @@ public class RootViewController : UIViewController, PaperFoldViewDelegate {
         let screen = UIScreen.main.bounds
         self.paperFoldView = PaperFoldView(frame: CGRect(x: 0, y: 0, width: screen.size.width, height: screen.size.height))
         self.paperFoldView.timerStepDuration = 0.02
-        self.view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
+        self.view.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth]
         
         self.mainContentViewContainer = UIView(frame: self.paperFoldView.bounds)
         self.mainContentViewContainer.backgroundColor = .black

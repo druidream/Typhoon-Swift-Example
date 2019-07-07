@@ -17,7 +17,7 @@ public class ThemeAssembly : TyphoonAssembly {
     /**
      * Current-theme is emitted from the theme-factory, which increments the theme on each run of the application.
      */
-    public dynamic func currentTheme() -> AnyObject {
+    @objc dynamic func currentTheme() -> AnyObject {
 
         return TyphoonDefinition.withFactory(self.themeFactory(), selector: "sequentialTheme") as AnyObject
     }
@@ -26,7 +26,7 @@ public class ThemeAssembly : TyphoonAssembly {
     * The theme factory contains a collection of each theme. Individual themes are using Typhoon's type-converter system to convert the
     * string representation of properties to their required runtime type.
     */
-    public dynamic func themeFactory() -> AnyObject {
+    @objc dynamic func themeFactory() -> AnyObject {
         return TyphoonDefinition.withClass(ThemeFactory.self) {
             definition in
 
@@ -45,7 +45,7 @@ public class ThemeAssembly : TyphoonAssembly {
     }
 
 
-    public dynamic func cloudsOverTheCityTheme() -> AnyObject {
+    @objc dynamic func cloudsOverTheCityTheme() -> AnyObject {
         return TyphoonDefinition.withClass(Theme.self) {
             definition in
 
@@ -57,7 +57,7 @@ public class ThemeAssembly : TyphoonAssembly {
     }
 
 
-    public dynamic func lightsInTheRainTheme() -> AnyObject {
+    @objc dynamic func lightsInTheRainTheme() -> AnyObject {
         return TyphoonDefinition.withClass(Theme.self) {
             definition in
 
@@ -69,7 +69,7 @@ public class ThemeAssembly : TyphoonAssembly {
     }
 
 
-    public dynamic func beachTheme() -> AnyObject {
+    @objc dynamic func beachTheme() -> AnyObject {
         return TyphoonDefinition.withClass(Theme.self) {
             definition in
 
@@ -80,7 +80,7 @@ public class ThemeAssembly : TyphoonAssembly {
         } as AnyObject
     }
 
-    public dynamic func sunsetTheme() -> AnyObject {
+    @objc dynamic func sunsetTheme() -> AnyObject {
         return TyphoonDefinition.withClass(Theme.self) {
             definition in
 

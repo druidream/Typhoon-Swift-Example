@@ -15,7 +15,7 @@ public class CityTableViewCell : UITableViewCell {
     
     var cityLabel : UILabel!
     
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.cityLabel = UILabel(frame: self.bounds.insetBy(dx: 45, dy: 0))
         self.addSubview(self.cityLabel)

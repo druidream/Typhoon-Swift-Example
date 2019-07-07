@@ -20,15 +20,15 @@ public class ApplicationAssembly: TyphoonAssembly {
      * These are modules - assemblies collaborate to provie components to this one.  At runtime you
      * can instantiate Typhoon with any assembly tha satisfies the module interface.
      */
-    public var coreComponents: CoreComponents!
-    public var themeAssembly: ThemeAssembly!
+    @objc var coreComponents: CoreComponents!
+    @objc var themeAssembly: ThemeAssembly!
 
 
     /* 
      * This is the definition for our AppDelegate. Typhoon will inject the specified properties 
      * at application startup. 
      */
-    public dynamic func appDelegate() -> AnyObject {
+    @objc dynamic func appDelegate() -> AnyObject {
         return TyphoonDefinition.withClass(AppDelegate.self) {
             definition in
 
@@ -41,7 +41,7 @@ public class ApplicationAssembly: TyphoonAssembly {
     /*
      * A config definition, referencing properties that will be loaded from a plist. 
      */
-    public dynamic func config() -> AnyObject {
+    @objc dynamic func config() -> AnyObject {
 
         return TyphoonDefinition.configDefinition(withName: "Configuration.plist")
     }
@@ -51,7 +51,7 @@ public class ApplicationAssembly: TyphoonAssembly {
     // MARK: - Main Assembly
     //-------------------------------------------------------------------------------------------
 
-    public dynamic func rootViewController() -> AnyObject {
+    @objc dynamic func rootViewController() -> AnyObject {
         return TyphoonDefinition.withClass(RootViewController.self) {
             definition in
 
@@ -65,7 +65,7 @@ public class ApplicationAssembly: TyphoonAssembly {
         } as AnyObject
     }
 
-    public dynamic func citiesListController() -> AnyObject {
+    @objc dynamic func citiesListController() -> AnyObject {
 
         return TyphoonDefinition.withClass(CitiesListViewController.self) {
             definition in
@@ -82,7 +82,7 @@ public class ApplicationAssembly: TyphoonAssembly {
     }
 
 
-    public dynamic func weatherReportController() -> AnyObject {
+    @objc dynamic func weatherReportController() -> AnyObject {
 
         return TyphoonDefinition.withClass(WeatherReportViewController.self) {
             definition in
@@ -100,7 +100,7 @@ public class ApplicationAssembly: TyphoonAssembly {
         }  as AnyObject
     }
 
-    public dynamic func weatherReportView() -> AnyObject {
+    @objc dynamic func weatherReportView() -> AnyObject {
 
         return TyphoonDefinition.withClass(WeatherReportView.self) {
             definition in
@@ -109,7 +109,7 @@ public class ApplicationAssembly: TyphoonAssembly {
         } as AnyObject
     }
 
-    public dynamic func addCityViewController() -> AnyObject {
+    @objc dynamic func addCityViewController() -> AnyObject {
 
         return TyphoonDefinition.withClass(AddCityViewController.self) {
             definition in

@@ -14,7 +14,7 @@ import UIKit
 
 public class WeatherReportViewController: UIViewController {
 
-    public var weatherReportView : WeatherReportView {
+    @objc var weatherReportView : WeatherReportView {
         get {
             return self.view as! WeatherReportView
         }
@@ -24,7 +24,7 @@ public class WeatherReportViewController: UIViewController {
     }
     
     public private(set) var weatherClient : WeatherClient
-    public private(set) var weatherReportDao : WeatherReportDao
+    @objc private(set) var weatherReportDao : WeatherReportDao
     public private(set) var cityDao : CityDao
     public private(set) var assembly : ApplicationAssembly
     
@@ -36,7 +36,7 @@ public class WeatherReportViewController: UIViewController {
     // MARK: - Initialization & Destruction
     //-------------------------------------------------------------------------------------------
     
-    public dynamic init(view: WeatherReportView, weatherClient : WeatherClient, weatherReportDao : WeatherReportDao, cityDao : CityDao, assembly : ApplicationAssembly) {
+    @objc dynamic init(view: WeatherReportView, weatherClient : WeatherClient, weatherReportDao : WeatherReportDao, cityDao : CityDao, assembly : ApplicationAssembly) {
         
         self.weatherClient = weatherClient
         self.weatherReportDao = weatherReportDao
@@ -79,12 +79,12 @@ public class WeatherReportViewController: UIViewController {
         
         if self.cityName != nil {
             
-            let cityListButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks, target: self, action: #selector(WeatherReportViewController.presentMenu))
+            let cityListButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(WeatherReportViewController.presentMenu))
             cityListButton.tintColor = .white
             
-            let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+            let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
             
-            let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(WeatherReportViewController.refreshData))
+            let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(WeatherReportViewController.refreshData))
             refreshButton.tintColor = .white
             
             self.weatherReportView.toolbar.items = [
@@ -106,7 +106,7 @@ public class WeatherReportViewController: UIViewController {
     // MARK: - Private Methods
     //-------------------------------------------------------------------------------------------
 
-    private dynamic func refreshData() {
+    @objc private dynamic func refreshData() {
         ICLoader.present()
         
         self.weatherClient.loadWeatherReportFor(city: self.cityName!, onSuccess: {
@@ -125,7 +125,7 @@ public class WeatherReportViewController: UIViewController {
         })
     }
     
-    private dynamic func presentMenu() {
+    @objc private dynamic func presentMenu() {
         let rootViewController = self.assembly.rootViewController() as! RootViewController
         rootViewController.toggleSideViewController()
     }

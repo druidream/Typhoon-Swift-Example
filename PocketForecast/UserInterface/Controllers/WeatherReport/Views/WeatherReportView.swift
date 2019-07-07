@@ -43,7 +43,7 @@ public class WeatherReportView : UIView, UITableViewDelegate, UITableViewDataSou
         }
     }
     
-    public var theme : Theme! {
+    @objc public var theme : Theme! {
         willSet(theme) {
             DispatchQueue.main.async() {
                 self.toolbar.barTintColor = theme.forecastTintColor
@@ -116,7 +116,7 @@ public class WeatherReportView : UIView, UITableViewDelegate, UITableViewDataSou
         if let dequeueCell = self.tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? ForecastTableViewCell {
             cell = dequeueCell
         } else {
-            cell = ForecastTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseIdentifier)
+            cell = ForecastTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
         }
         
         if let weatherReport = self.weatherReport, weatherReport.forecast.count > indexPath.row {

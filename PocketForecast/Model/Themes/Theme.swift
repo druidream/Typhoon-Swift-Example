@@ -13,9 +13,9 @@ import Foundation
 
 public class Theme : NSObject {
     
-    public var backgroundResourceName : String?
-    public var navigationBarColor : UIColor?
-    public var forecastTintColor : UIColor?
-    public var controlTintColor : UIColor?
+    @objc var backgroundResourceName : String?
+    @objc var navigationBarColor : UIColor?
+    @objc var forecastTintColor : UIColor?
+    @objc var controlTintColor : UIColor?
         
 }

@@ -13,11 +13,11 @@ import Foundation
 
 public class WeatherClientBasicImpl: NSObject, WeatherClient {
 
-    var weatherReportDao: WeatherReportDao?
-    var serviceUrl: NSURL?
-    var daysToRetrieve: NSNumber?
+    @objc var weatherReportDao: WeatherReportDao?
+    @objc var serviceUrl: NSURL?
+    @objc var daysToRetrieve: NSNumber?
 
-    var apiKey: String? {
+    @objc var apiKey: String? {
         willSet(newValue) {
             assert(newValue != "$$YOUR_API_KEY_HERE$$", "Please get an API key (v2) from: http://free.worldweatheronline.com, and then " +
                     "edit 'Configuration.plist'")

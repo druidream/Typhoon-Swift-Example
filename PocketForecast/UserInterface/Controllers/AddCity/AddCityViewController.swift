@@ -15,10 +15,10 @@ class AddCityViewController: UIViewController, UITextFieldDelegate, Themeable {
     
     //Typhoon injected properties
     
-    var cityDao : CityDao!
-    var weatherClient : WeatherClient!
-    var theme : Theme!
-    var rootViewController : RootViewController!
+    @objc var cityDao : CityDao!
+    @objc var weatherClient : WeatherClient!
+    @objc var theme : Theme!
+    @objc var rootViewController : RootViewController!
     
     //Interface Builder injected properties
     
@@ -57,7 +57,7 @@ class AddCityViewController: UIViewController, UITextFieldDelegate, Themeable {
         return true
     }
         
-    private dynamic func doneAdding(textField : UITextField) {
+    @objc private dynamic func doneAdding(textField : UITextField) {
         if !self.nameOfCityToAdd.text!.isEmpty {
             self.validationMessage.text = "Validating city . ."
             self.validationMessage.isHidden = false

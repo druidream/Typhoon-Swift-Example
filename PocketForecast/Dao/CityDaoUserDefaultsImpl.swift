@@ -26,7 +26,7 @@ public class CityDaoUserDefaultsImpl : NSObject, CityDao {
     ]
     
     
-    init(defaults : UserDefaults) {
+    @objc init(defaults : UserDefaults) {
         self.defaults = defaults
     }
     

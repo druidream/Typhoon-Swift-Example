@@ -20,7 +20,7 @@ public class ForecastTableViewCell : UITableViewCell {
     public private(set) var lowTempLabel : UILabel!
     public private(set) var conditionsIcon : UIImageView!
     
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.initBackgroundView()

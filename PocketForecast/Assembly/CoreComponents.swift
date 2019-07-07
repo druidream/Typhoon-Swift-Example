@@ -12,7 +12,7 @@
 
 public class CoreComponents: TyphoonAssembly {
     
-    public dynamic func weatherClient() -> AnyObject {
+    @objc dynamic func weatherClient() -> AnyObject {
         return TyphoonDefinition.withClass(WeatherClientBasicImpl.self) {
             definition in
             
@@ -23,11 +23,11 @@ public class CoreComponents: TyphoonAssembly {
         } as AnyObject
     }
     
-    public dynamic func weatherReportDao() -> AnyObject {
+    @objc dynamic func weatherReportDao() -> AnyObject {
         return TyphoonDefinition.withClass(WeatherReportDaoFileSystemImpl.self) as AnyObject
     }
     
-    public dynamic func cityDao() -> AnyObject {
+    @objc dynamic func cityDao() -> AnyObject {
         
         return TyphoonDefinition.withClass(CityDaoUserDefaultsImpl.self) {
             definition in

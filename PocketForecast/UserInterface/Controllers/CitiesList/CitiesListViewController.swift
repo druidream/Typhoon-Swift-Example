@@ -17,9 +17,9 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
     let fahrenheitSegmentIndex = 1
     
     //Typhoon injected properties
-    var cityDao : CityDao!
-    public var theme : Theme!
-    private dynamic var assembly : ApplicationAssembly!
+    @objc var cityDao : CityDao!
+    @objc public var theme : Theme!
+    @objc private dynamic var assembly : ApplicationAssembly!
     
     
     //Interface Builder injected properties
@@ -28,7 +28,7 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
     
     var cities : Array<String>?
     
-    init(cityDao : CityDao, theme : Theme) {
+    @objc init(cityDao : CityDao, theme : Theme) {
         super.init(nibName: "CitiesList", bundle: Bundle.main)
         self.cityDao = cityDao
         self.theme = theme
@@ -105,12 +105,12 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
         rootViewController.dismissCitiesListController()
     }
     
-    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         
         return .delete
     }
 
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
             let city = cities![indexPath.row]
@@ -119,7 +119,7 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
         }
     }
 
-    private dynamic func addCity() {
+    @objc private dynamic func addCity() {
         
         let rootViewController = self.assembly.rootViewController() as! RootViewController
         rootViewController.showAddCitiesController()
@@ -130,7 +130,7 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
         self.citiesListTableView.reloadData()
     }
     
-    private dynamic func saveTemperatureUnitPreference() {
+    @objc private dynamic func saveTemperatureUnitPreference() {
         if self.temperatureUnitsControl.selectedSegmentIndex == celciusSegmentIndex {
             Temperature.setDefaultUnits(units: TemperatureUnits.Celsius)
         }
@@ -139,7 +139,7 @@ public class CitiesListViewController : UIViewController, UITableViewDelegate, U
         }
     }
     
-    private func applyTheme() {
+    @objc private func applyTheme() {
         self.temperatureUnitsControl.tintColor = self.theme.controlTintColor
         self.navigationController!.navigationBar.tintColor = .white
         self.navigationController!.navigationBar.barTintColor = self.theme.navigationBarColor

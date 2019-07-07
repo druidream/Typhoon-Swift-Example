@@ -15,19 +15,19 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    var cityDao: CityDao?
-    var rootViewController: RootViewController?
+    @objc var window: UIWindow?
+    @objc var cityDao: CityDao?
+    @objc var rootViewController: RootViewController?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         ICLoader.setImageName("cloud_icon.png")
         ICLoader.setLabelFontName(UIFont.applicationFontOfSize(size: 10).fontName)
         
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
         UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName : UIFont.applicationFontOfSize(size: 20),
-            NSForegroundColorAttributeName : UIColor.white
+            NSAttributedString.Key.font : UIFont.applicationFontOfSize(size: 20),
+            NSAttributedString.Key.foregroundColor : UIColor.white
         ]
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
